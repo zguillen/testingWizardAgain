@@ -1,37 +1,42 @@
-# MSD-LIVE Dataset Notebook Template
+<!-- DATASET_USER_README_PLACEHOLDER: Replace all bracketed placeholders then delete this comment block. -->
 
-This repository is a GitHub Template used to create per-dataset notebook repositories.
-After you click “Use this template” the resulting dataset notebook repository will 
-swap this README for an end‑user dataset README (if you have not edited it yet).
+# Exploring Dataset [DATASET_NAME]
 
-## What This Template Provides
-- Example notebooks: example_python.ipynb, example_r.ipynb, example_julia.ipynb
-- Author guide: NOTEBOOK_DEVELOPERS_GUIDE.md
-- Automated README swap workflow
-- Pattern for dependency installation & DATA_DIR usage
+[SHORT_DATASET_DESCRIPTION]
 
-## Files That Will Move / Be Swapped
-- .github/README_DATASET_PLACEHOLDER.md -> becomes README.md in new repos (if marker intact)
+## Available Notebooks
+| Notebook | Purpose | Key Libraries |
+| -------- | ------- | ------------- |
+| [NOTEBOOK_1_NAME].ipynb | [NOTEBOOK_1_PURPOSE] | [PRIMARY_LIBS] |
+| (Add more rows) |  |  |
 
-## How the Swap Works
-1. You generate a new repository from this template.
-2. On the first push, if THIS README:
-   - Still contains TEMPLATE_ROOT_README marker, AND
-   - Matches the upstream template README content exactly, THEN
-   the workflow copies .github/README_DATASET_PLACEHOLDER.md to README.md
-3. You then customize placeholders in the new README.
+## Quick Start
+1. Open a notebook.
+2. Run the first (dependency install) cell.
+3. Access data via the DATA_DIR environment variable (preferred) or /data.
 
-If you prefer to keep this template overview visible in the new repo, remove the marker comment.
+## Accessing the Data
+DATA_DIR points to the mounted read‑only dataset. Example (Python):
+```python
+import os, pathlib
+data_dir = pathlib.Path(os.environ["DATA_DIR"])
+print('DATA_DIR:', data_dir)
+print('Top-level files:', [p.name for p in data_dir.iterdir()][:10])
+```
 
-## Quick Start (For Template Users)
-1. Generate new repository from template.
-2. Push (or manually copy the placeholder README if you disabled the workflow).
-3. Edit README.md placeholders.
-4. Customize notebooks & requirements.
-5. Commit and ensure no placeholder tokens remain.
+## Notebook Summaries
+- [NOTEBOOK_1_NAME].ipynb: [NOTEBOOK_1_PURPOSE]
+- (Add entries)
 
-## DATA_DIR Convention
-Dataset files mount read‑only at $DATA_DIR (also /data symlink). All relative paths in notebooks should use DATA_DIR.
+## Environment & Dependencies
+See requirements.txt (Python) or notebook install cells for R / Julia.  
+Write outputs to your home directory (~/) or /tmp (dataset directory is read‑only).
 
-## Support
-See [this documentation](https://dev.msdlive.org/dataset-notebooks) or contact the MSD-LIVE team at info@msdlive.org.
+## Support / Contact
+Questions: [CONTACT_EMAIL_OR_LINK]
+
+## General Help
+See [this documentation](https://dev.msdlive.org/dataset-notebooks) 
+
+## License / Terms
+[LICENSE_OR_TERMS]
